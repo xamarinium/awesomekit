@@ -5,6 +5,13 @@
 	<Application.Resources>
 
 		<!-- Application resource dictionary -->
-
-	</Application.Resources>
+        <ResourceDictionary>
+            
+            <!-- Colors -->
+            <Color x:Key="Primary">#E37A5E</Color>
+            <Color x:Key="PrimaryDark">#E6886E</Color>
+            <Color x:Key="Accent">#E37A5E</Color>
+            
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

@@ -3,9 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Awesomekit"
              x:Class="Awesomekit.MainPage">
-
-	<Label Text="Welcome to Xamarin Forms!" 
+    <Grid>
+        <Label Text="Welcome to Xamarin Forms!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
+        <Grid x:Name="SplashGrid" BackgroundColor="{StaticResource Primary}">
+            <Image x:Name="Logo" Source="logo" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image.TranslationY>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">0</On>
+                        <On Platform="Android">-12</On>
+                    </OnPlatform>
+                </Image.TranslationY>
+            </Image>
+        </Grid>
+    </Grid>
 </ContentPage>
