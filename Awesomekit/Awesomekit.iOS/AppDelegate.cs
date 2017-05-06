@@ -4,6 +4,10 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using XLabs.Platform.Device;
+using XLabs.Forms.Services;
+using XLabs.Platform.Services.Email;
+using XLabs.Platform.Services.Media;
 
 namespace Awesomekit.iOS
 {
@@ -23,9 +27,17 @@ namespace Awesomekit.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            App.OnContainerSet += OnContainerSet;
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+        private void OnContainerSet(XLabs.Ioc.IDependencyContainer container)
+        {
+            container.Register<IDevice>(t => AppleDevice.CurrentDevice)
+                .Register<IDisplay>(t => t.Resolve<IDevice>().Display)
+                .Register<IMediaPicker, MediaPicker>();
         }
     }
 }
