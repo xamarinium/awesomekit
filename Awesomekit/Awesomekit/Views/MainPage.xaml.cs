@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using XLabs.Forms.Mvvm;
 
 namespace Awesomekit
 {
-    // Base view for MVVM in XLabs
-    public partial class MainPage : BaseView
+    public partial class MainPage : ContentPage
     {
         public MainPage()
         {
