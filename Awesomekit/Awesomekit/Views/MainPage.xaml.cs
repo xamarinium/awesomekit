@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
+using Awesomekit.Helpers;
 using Xamarin.Forms;
 
 namespace Awesomekit.Views
 {
+    [Page(Name = "main")]
     public partial class MainPage : ContentPage
     {
         public MainPage()

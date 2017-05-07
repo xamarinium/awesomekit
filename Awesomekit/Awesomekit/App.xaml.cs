@@ -1,7 +1,13 @@
 ﻿
+using System.Linq;
+using System.Reflection;
+using Autofac;
+using Awesomekit.Helpers.Extentions;
 using Awesomekit.ViewModels;
+using Awesomekit.Views;
 using Prism.Autofac;
 using Prism.Autofac.Forms;
+using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace Awesomekit
@@ -11,20 +17,13 @@ namespace Awesomekit
         protected override void OnInitialized()
         {
             InitializeComponent();
-
-            NavigationService.NavigateAsync("Main");
+            NavigationService.NavigateAsync("navigation/main");
         }
 
         protected override void RegisterTypes()
         {
-
-            Container.RegisterTypeForNavigation<NavigationPage>("Navigation");
-            Container.RegisterTypeForNavigation<Views.MainPage>("Main");
-
-            //var builder = new ContainerBuilder();
-            //builder.Build().register.RegisterTypeForNavigation<MainPage>();
-            //builder.RegisterType<MyService>().As<IMyService>();
-            //builder.Update(Container);
+            Container.RegisterTypeForNavigation<NavigationPage>("navigation");
+            Container.RegisterAllPages(typeof(App).GetTypeInfo().Assembly);
         }
     }
 }
