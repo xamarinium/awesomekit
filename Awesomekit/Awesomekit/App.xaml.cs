@@ -1,34 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
+using Awesomekit.ViewModels;
+using Prism.Autofac;
+using Prism.Autofac.Forms;
 using Xamarin.Forms;
 
 namespace Awesomekit
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        protected override void OnInitialized()
         {
             InitializeComponent();
 
-            MainPage = new Awesomekit.MainPage();
+            NavigationService.NavigateAsync("Main");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes()
         {
-            // Handle when your app starts
-        }
 
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
+            Container.RegisterTypeForNavigation<NavigationPage>("Navigation");
+            Container.RegisterTypeForNavigation<Views.MainPage>("Main");
 
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            //var builder = new ContainerBuilder();
+            //builder.Build().register.RegisterTypeForNavigation<MainPage>();
+            //builder.RegisterType<MyService>().As<IMyService>();
+            //builder.Update(Container);
         }
     }
 }
