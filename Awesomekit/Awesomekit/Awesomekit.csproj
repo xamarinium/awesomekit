@@ -38,8 +38,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Extentions\CointanerBuilderExtentions.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Helpers\Extentions\CointanerExtentions.cs" />
+    <Compile Include="Helpers\PageAttribute.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Prism.Navigation;
+
+namespace Awesomekit.ViewModels
+{
+    public class MainPageViewModel : BaseViewModel
+    {
+        public MainPageViewModel(INavigationService navigationService) : base(navigationService)
+        {
+        }
+    }
+}

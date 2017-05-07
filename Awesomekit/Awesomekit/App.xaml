@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
+<autofac:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:autofac="clr-namespace:Prism.Autofac;assembly=Prism.Autofac.Forms"
              x:Class="Awesomekit.App">
-	<Application.Resources>
+    <autofac:PrismApplication.Resources>
 
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
@@ -13,5 +14,5 @@
             <Color x:Key="Accent">#E37A5E</Color>
             
         </ResourceDictionary>
-    </Application.Resources>
-</Application>
+    </autofac:PrismApplication.Resources>
+</autofac:PrismApplication>

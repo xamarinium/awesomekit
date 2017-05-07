@@ -6,30 +6,24 @@ using System.Text;
 using Autofac;
 using Awesomekit.Helpers.Extentions;
 using Awesomekit.ViewModels;
+using Prism.Autofac;
+using Prism.Autofac.Forms;
 using Xamarin.Forms;
 
 namespace Awesomekit
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        protected override void OnInitialized()
         {
             InitializeComponent();
+
+            NavigationService.NavigateAsync("main");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes()
         {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            Container.AutoRegisterMvvmComponents(typeof(App).GetTypeInfo().Assembly);
         }
     }
 }
