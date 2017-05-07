@@ -22,7 +22,7 @@ namespace Awesomekit.Helpers.Extentions
 
             foreach (var page in pageTypesInfos)
             {
-                var pageName = page.Name;
+                var pageName = GetPageName(page.AsType());
                 // the next two lines do what  RegisterTypeForNavigation
                 container.RegisterTypeForNavigation(page.AsType(), pageName);
                 PageNavigationRegistry.Register(pageName, page.AsType());
@@ -33,7 +33,16 @@ namespace Awesomekit.Helpers.Extentions
 
         private static string GetPageName(Type pageType)
         {
-            var attrs = pageType.
+            var attrs = pageType.GetTypeInfo().GetCustomAttributes();
+
+            foreach (var attr in attrs)
+            {
+                var pageAttribute = attr as PageAttribute;
+                if (pageAttribute != null)
+                    return pageAttribute.Name;
+            }
+
+            return pageType.Name;
         }
     }
 }
