@@ -12,7 +12,12 @@
             <Color x:Key="Primary">#E37A5E</Color>
             <Color x:Key="PrimaryDark">#E6886E</Color>
             <Color x:Key="Accent">#E37A5E</Color>
-            
+
+            <Color x:Key="Gray">#D6D6D6</Color>
+            <Color x:Key="DarkGray">#A7A7A7</Color>
+            <Color x:Key="LightGray">#EFEFEF</Color>
+            <Color x:Key="White">#FFFFFF</Color>
+
         </ResourceDictionary>
     </autofac:PrismApplication.Resources>
 </autofac:PrismApplication>
