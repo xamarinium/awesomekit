@@ -17,6 +17,56 @@
             <Color x:Key="DarkGray">#A7A7A7</Color>
             <Color x:Key="LightGray">#EFEFEF</Color>
             <Color x:Key="White">#FFFFFF</Color>
+            
+            <!-- Label -->
+            <Style x:Key="NormalLabel" TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">OpenSans</On>
+                            <On Platform="Android">Fonts/OpenSans-Regular.ttf#OpenSans</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="LightLabel" TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">OpenSans-Light</On>
+                            <On Platform="Android">Fonts/OpenSans-Light.ttf#Light</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            <!-- Button -->
+            <Style x:Key="BaseButton" TargetType="Button">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">OpenSans</On>
+                            <On Platform="Android">Fonts/OpenSans-Regular.ttf#OpenSans</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <!--  Custom button style  -->
+                <Setter Property="HeightRequest" Value="46"/>
+                <Setter Property="BorderRadius" Value="4" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+            
+            <Style x:Key="GrayButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+                 <Setter Property="BackgroundColor" Value="{StaticResource Gray}" />
+                <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+            </Style>
+
+            <Style x:Key="DarkGrayButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkGray}" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+            </Style>
 
         </ResourceDictionary>
     </autofac:PrismApplication.Resources>

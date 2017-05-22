@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Awesomekit.Views.LandingPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.5" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  Here will be CarouselView  -->
+        <ContentView Grid.Row="0" />
+        
+         <!--  Separator  -->
+        <BoxView Grid.Row="1" BackgroundColor="{StaticResource Gray}" />
+
+        <!--  Buttons and label  -->
+        <StackLayout Grid.Row="2" Padding="45,30,45,25" Spacing="15">
+            <Button Style="{StaticResource DarkGrayButton}" Text="Login with Facebook" />
+            <Button Style="{StaticResource GrayButton}" Text="Sing Up with Email" />
+
+            <Label Style="{StaticResource LightLabel}" Text="I already have an account" 
+                   VerticalOptions="Center" HorizontalOptions="Center" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -18,7 +18,7 @@ namespace Awesomekit
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("main");
+            NavigationService.NavigateAsync("landing");
         }
 
         protected override void RegisterTypes()
