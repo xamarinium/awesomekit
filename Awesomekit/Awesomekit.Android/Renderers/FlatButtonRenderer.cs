@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.Content;
 using Android.Graphics;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Awesomekit.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -20,6 +10,11 @@ namespace Awesomekit.Droid.Renderers
 {
     public class FlatButtonRenderer : ButtonRenderer
     {
+        public FlatButtonRenderer(Context context) : base(context)
+        {
+            
+        }
+        
         protected override void OnDraw(Canvas canvas)
         {
             base.OnDraw(canvas);

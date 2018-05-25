@@ -1,6 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              x:Class="Awesomekit.Views.LandingPage">
     <Grid>
         <Grid.RowDefinitions>
@@ -10,9 +12,45 @@
         </Grid.RowDefinitions>
 
         <!--  Here will be CarouselView  -->
-        <ContentView Grid.Row="0" />
-        
-         <!--  Separator  -->
+        <ContentView Grid.Row="0">
+            <controls:CarouselViewControl Orientation="Horizontal" InterPageSpacing="10"
+                                          ItemsSource="{Binding ItemsSource}"
+                                          ShowIndicators="true"
+                                          CurrentPageIndicatorTintColor="{StaticResource Accent}"
+                                          VerticalOptions="FillAndExpand"
+                                          HorizontalOptions="FillAndExpand">
+
+                <controls:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="20" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="40" />
+                            </Grid.RowDefinitions>
+
+                            <ContentView Grid.Row="0"
+                                         Padding="50,10,50,5">
+                                <Image Source="{Binding Image}" HorizontalOptions="Center" VerticalOptions="Center"
+                                       Aspect="AspectFit" />
+                            </ContentView>
+
+                            <ContentView Grid.Row="1" Padding="30,5,30,0">
+                                <Label Text="{Binding Description}"
+                                       Style="{StaticResource NormalLabel}"
+                                       LineBreakMode="WordWrap"
+                                       TextColor="{StaticResource DarkGray}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center" />
+                            </ContentView>
+                        </Grid>
+                    </DataTemplate>
+                    
+                </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>
+        </ContentView>
+
+        <!--  Separator  -->
         <BoxView Grid.Row="1" BackgroundColor="{StaticResource Gray}" />
 
         <!--  Buttons and label  -->
@@ -20,7 +58,7 @@
             <Button Style="{StaticResource DarkGrayButton}" Text="Login with Facebook" />
             <Button Style="{StaticResource GrayButton}" Text="Sing Up with Email" />
 
-            <Label Style="{StaticResource LightLabel}" Text="I already have an account" 
+            <Label Style="{StaticResource LightLabel}" Text="I already have an account"
                    VerticalOptions="Center" HorizontalOptions="Center" />
         </StackLayout>
     </Grid>

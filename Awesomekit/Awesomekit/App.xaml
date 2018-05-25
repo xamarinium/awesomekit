@@ -4,7 +4,7 @@
              xmlns:autofac="clr-namespace:Prism.Autofac;assembly=Prism.Autofac.Forms"
              x:Class="Awesomekit.App">
     <autofac:PrismApplication.Resources>
-
+        
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
             
