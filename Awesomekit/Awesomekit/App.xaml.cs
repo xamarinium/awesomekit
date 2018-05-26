@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using Autofac;
+﻿using System.Reflection;
 using Awesomekit.Helpers.Extentions;
-using Awesomekit.ViewModels;
 using Prism.Autofac;
-using Prism.Autofac.Forms;
-using Xamarin.Forms;
+using Prism.Ioc;
+
 
 namespace Awesomekit
 {
@@ -21,9 +15,9 @@ namespace Awesomekit
             NavigationService.NavigateAsync("landing");
         }
 
-        protected override void RegisterTypes()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            Container.AutoRegisterMvvmComponents(typeof(App).GetTypeInfo().Assembly);
+            containerRegistry.AutoRegisterMvvmComponents(typeof(App).GetTypeInfo().Assembly);
         }
     }
 }

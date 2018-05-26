@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
-using Autofac.Core;
-using Prism.Autofac.Forms;
+using Prism.Ioc;
 using Prism.Navigation;
 using Xamarin.Forms;
 
@@ -14,7 +9,7 @@ namespace Awesomekit.Helpers.Extentions
 {
     public static class CointanerExtentions
     {
-        public static IContainer AutoRegisterMvvmComponents(this IContainer container, Assembly assembly)
+        public static IContainerRegistry AutoRegisterMvvmComponents(this IContainerRegistry containerRegistry, Assembly assembly)
         {
             var pageBaseTypeInfo = typeof(Page).GetTypeInfo();
             // get all pages
@@ -24,11 +19,11 @@ namespace Awesomekit.Helpers.Extentions
             {
                 var pageName = GetPageName(page.AsType());
                 // the next two lines do what  RegisterTypeForNavigation
-                container.RegisterTypeForNavigation(page.AsType(), pageName);
+                containerRegistry.RegisterForNavigation(page.AsType(), pageName);
                 PageNavigationRegistry.Register(pageName, page.AsType());
             }
 
-            return container;
+            return containerRegistry;
         }
 
         private static string GetPageName(Type pageType)
