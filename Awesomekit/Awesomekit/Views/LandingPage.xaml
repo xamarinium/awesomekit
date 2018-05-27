@@ -1,6 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              x:Class="Awesomekit.Views.LandingPage">
     <Grid>
         <Grid.RowDefinitions>
@@ -10,9 +12,37 @@
         </Grid.RowDefinitions>
 
         <!--  Here will be CarouselView  -->
-        <ContentView Grid.Row="0" />
-        
-         <!--  Separator  -->
+        <ContentView Grid.Row="0">
+            <controls:CarouselViewControl ItemsSource="{Binding Slides}"
+                                          ShowIndicators="True"
+                                          ShowArrows="False"
+                                          IndicatorsTintColor="{StaticResource DarkGray}"
+                                          CurrentPageIndicatorTintColor="{StaticResource Primary}">
+                <controls:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <ContentView Grid.Row="0" Padding="60,30,60,0">
+                                <Image Source="{Binding Image}" Aspect="AspectFit" />
+                            </ContentView>
+
+                            <ContentView Grid.Row="1" Padding="20,10,20,50">
+                                <Label Text="{Binding Description}"
+                                       Style="{StaticResource LightLabel}"
+                                       HorizontalTextAlignment="Center" />
+                            </ContentView>
+
+                        </Grid>
+                    </DataTemplate>
+                </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>
+        </ContentView>
+
+        <!--  Separator  -->
         <BoxView Grid.Row="1" BackgroundColor="{StaticResource Gray}" />
 
         <!--  Buttons and label  -->
@@ -20,7 +50,7 @@
             <Button Style="{StaticResource DarkGrayButton}" Text="Login with Facebook" />
             <Button Style="{StaticResource GrayButton}" Text="Sing Up with Email" />
 
-            <Label Style="{StaticResource LightLabel}" Text="I already have an account" 
+            <Label Style="{StaticResource LightLabel}" Text="I already have an account"
                    VerticalOptions="Center" HorizontalOptions="Center" />
         </StackLayout>
     </Grid>

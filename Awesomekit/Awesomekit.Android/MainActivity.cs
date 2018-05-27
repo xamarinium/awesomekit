@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using CarouselView.FormsPlugin.Android;
 
 namespace Awesomekit.Droid
 {
@@ -18,9 +19,15 @@ namespace Awesomekit.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+            InitControls();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+        }
+
+        private void InitControls()
+        {
+            CarouselViewRenderer.Init();
         }
     }
 }
