@@ -15,9 +15,9 @@ namespace Awesomekit.ViewModels
         {
             Slides = new ObservableCollection<Slide>(new []
             {
-                new Slide("landing01.png", "Some description for slide one."),
-                new Slide("landing02.png", "Some description for slide two."),
-                new Slide("landing03.png", "Some description for slide three.")
+                new Slide("landing01.png", "Some description for slide one.", 0),
+                new Slide("landing02.png", "Some description for slide two.", 1),
+                new Slide("landing03.png", "Some description for slide three.", 2)
             });
         }
         

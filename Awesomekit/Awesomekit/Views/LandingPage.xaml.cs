@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Awesomekit.Helpers;
+﻿using Awesomekit.Helpers;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using ScrolledEventArgs = CarouselView.FormsPlugin.Abstractions.ScrolledEventArgs;
 
 namespace Awesomekit.Views
 {
@@ -15,6 +10,14 @@ namespace Awesomekit.Views
         public LandingPage()
         {
             InitializeComponent();
+            
+            CarouselView.Scrolled += CarouselViewOnScrolled;
+            CarouselView.AnimateTransition = true;
+        }
+
+        private void CarouselViewOnScrolled(object sender, ScrolledEventArgs e)
+        {
+            CarouselView.AnimateTransition = true;
         }
     }
 }
