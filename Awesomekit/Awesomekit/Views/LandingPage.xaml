@@ -3,6 +3,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:views="clr-namespace:Awesomekit.Views;assembly=Awesomekit"
              x:Class="Awesomekit.Views.LandingPage">
     <Grid>
         <Grid.RowDefinitions>
@@ -20,23 +21,7 @@
                                           CurrentPageIndicatorTintColor="{StaticResource Primary}">
                 <controls:CarouselViewControl.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
-                            <ContentView Grid.Row="0" Padding="60,30,60,0">
-                                <Image Source="{Binding Image}" Aspect="AspectFit" />
-                            </ContentView>
-
-                            <ContentView Grid.Row="1" Padding="20,10,20,50">
-                                <Label Text="{Binding Description}"
-                                       Style="{StaticResource LightLabel}"
-                                       HorizontalTextAlignment="Center" />
-                            </ContentView>
-
-                        </Grid>
+                        <views:SlideView />
                     </DataTemplate>
                 </controls:CarouselViewControl.ItemTemplate>
             </controls:CarouselViewControl>
